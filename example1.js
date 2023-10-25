@@ -19,3 +19,4 @@ for(;;){ // sonsuz döngü
 console.log(dizi)
 console.log("Atlanan sayı :",45-topla ) // 1 den 9 a kadar olan sayıların toplamından
                        // türetilen sayılar toplamı çıkarak eksik olan sayı bulunur.
+console.log("BAŞARILI")
