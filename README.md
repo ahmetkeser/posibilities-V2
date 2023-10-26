@@ -2,7 +2,7 @@
 ### Bu sınırlar içersinde --> [1,2,3,4,5,6,7,8,9]  8 adet  sayı türetilerek
 ### eksik olan 1 adet sayıyı geri döndürücek
 ### basit görülen bu sistem olası ihtimal zincirlerini ortaya çıkarma çalışmasıdır
-### dom yapıları birbiri ile bağlantılı olarak faklı js dosyalarının oluşturulması ile gerçekleştirildi
+### DOM yapıları birbiri ile bağlantılı olarak faklı js dosyalarının oluşturulması ile gerçekleştirildi
     Benim açımdan javascript eğitimimde başlangıç rolü üstlenmektedir.
 C tabanlı olan bu yapıda daha da fazla algoritmik yapı oluşturulabilir.
 her çalıştırılacak js dosyası için ayrı akış diyagramları oluşturulmuştur ve 
