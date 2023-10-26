@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    
+    // parametre tanımlama bölgesi
     var button1 = document.getElementById("button-1")
     var button2 = document.getElementById("button-2")
     var button3 = document.getElementById("button-3")
