@@ -1,35 +1,62 @@
 /**
- * fonksiyon ile oluşturulan random sayı üretimi 
- * fonksiyon ile oluşturulan eksik sayı kontrolü
- * başarısız işlemlerde döngü sınırını etkilemeyen değer azalışı
+ * burada case break ile anlık üretilen sayıları giriş yapılmışcasına fonksiyonlarda 
+ * kontrolleri sağlar 
  */
+
+
 function refleshjs(){
-    let js7ArrayNumbers=[];
-    let js7Control=[1,2,3,4,5,6,7,8,9] // eksik sayı kontrolü için oluşturulan dizi
-    function control(value){ // ! bu fonksiyon üretilen random dizi içersinde eksik sayıyı bulur
-        for(let deger of js7Control){
-            if(value.includes(deger)==false)
-            {
-                return deger;
-            }
-        }
+    let js7ArrayNumbers=[],tut=0,say=0;
+    function randNumber(){ //bu fonksiyon her çağrıldığında 1 ile 9 arasında random üretim geri dönüş yapar.
+        let number = Math.floor(Math.random()*9)+1;
+        return number;
     }
-    function drive(){ // bu fonksiyon random 1 ile 9 arası sayı üretir
-        let newNumber = Math.floor(Math.random()*9)+1;
-        return newNumber;
-    }
-    for(let say=0;say<8;say++){
-        let meetNumber=drive(); // sayı üretme fonksiyonundan gelen değeri atadık
-        if(js7ArrayNumbers.includes(meetNumber)==false){ // üretilen sayının oluşturulan dizide kontrolünü yapar
-            console.log("Bu dizimde mevcut değil ekliyorum  : ",meetNumber);
-            js7ArrayNumbers.push(meetNumber)
+    function arrayControl(caseNumber){
+        if(js7ArrayNumbers.includes(caseNumber)== true) // üretilen sayıyı dizide kontrol eder
+        {
+            console.log("pass"); // dizide varsa pass geçer
         }else{
-            console.log("bu eleman mevcut",meetNumber,", bu beni etkilemez devamet Yenisini arıyorum ...");
-            say--; //! başarısız denemelerin tekrarını sağlar.
+            js7ArrayNumbers.push(caseNumber); // sayı dizide yoksa ekler
+            console.log("add :",caseNumber);
+            return caseNumber;
         }
     }
-    console.log(js7ArrayNumbers);
-    console.log("aranan eksik sayı : ",control(js7ArrayNumbers));
+    while(js7ArrayNumbers.length<8){    // dizi uzunluğuna göre tekrarlar
+        console.log("Döngü sayısı :",say++);
+        switch( tut=randNumber()){
+            //console.log("switce giren sayı",tut)
+            case 1:
+                arrayControl(1);
+                break;
+            case 2:
+                arrayControl(2);
+                break;
+            case 3:
+                arrayControl(3);
+                break;
+            case 4:
+                arrayControl(4);
+                break;
+            case 5:
+                arrayControl(5);
+                break;
+            case 6:
+                arrayControl(6);
+                break;
+            case 7:
+                arrayControl(7);
+                break;
+            case 8:
+                arrayControl(8);
+                break;
+            case 9:
+                arrayControl(9);
+                break;
+            default:
+                console.log("geçersiz değer")
+                break;
+        }
+    }
+    console.log(js7ArrayNumbers)
 }
 console.clear()
 refleshjs()

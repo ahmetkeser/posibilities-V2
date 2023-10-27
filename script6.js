@@ -1,62 +1,57 @@
 /**
- * burada case break ile anlık üretilen sayıları giriş yapılmışcasına fonksiyonlarda 
- * kontrolleri sağlar 
+ * fonksiyon ile oluşturulan random sayı üretimi 
+ * fonksiyon ile oluşturulan eksik sayı kontrolü
+ * başarısız işlemlerde döngü sınırını etkilemeyen değer azalışı
  */
-
-
 function refleshjs(){
-    let js6ArrayNumbers=[],tut=0,say=0;
-    function randNumber(){ //bu fonksiyon her çağrıldığında 1 ile 9 arasında random üretim geri dönüş yapar.
-        let number = Math.floor(Math.random()*9)+1;
-        return number;
+    const clearDOMConsole = document.getElementById("console-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
+    while (clearDOMConsole.firstChild) {
+        clearDOMConsole.removeChild(clearDOMConsole.firstChild)
     }
-    function arrayControl(caseNumber){
-        if(js6ArrayNumbers.includes(caseNumber)== true) // üretilen sayıyı dizide kontrol eder
-        {
-            console.log("pass"); // dizide varsa pass geçer
+    const clearDOMImage = document.getElementById("image-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
+    while (clearDOMImage.firstChild) {
+        clearDOMImage.removeChild(clearDOMImage.firstChild)
+    }
+
+    function pushOutput(text, textValue = "") {
+        let yapi = document.querySelector("#console-div")
+        let pushOutput = document.createElement("p")
+        pushOutput.textContent = text + textValue
+        yapi.appendChild(pushOutput)
+
+    }
+    let js6ArrayNumbers=[];
+    let js6Control=[1,2,3,4,5,6,7,8,9] // eksik sayı kontrolü için oluşturulan dizi
+    let tut=0
+    function control(value){ // ! bu fonksiyon üretilen random dizi içersinde eksik sayıyı bulur
+        for(let deger of js6Control){
+            if(value.includes(deger)==false)
+            {
+                return deger;
+            }
+        }
+    }
+    function drive(){ // bu fonksiyon random 1 ile 9 arası sayı üretir
+        let newNumber = Math.floor(Math.random()*9)+1;
+        return newNumber;
+    }
+    for(let say=0;say<8;say++){
+        tut++
+        let meetNumber=drive(); // sayı üretme fonksiyonundan gelen değeri atadık
+        if(js6ArrayNumbers.includes(meetNumber)==false){ // üretilen sayının oluşturulan dizide kontrolünü yapar
+            pushOutput("Bu dizimde mevcut değil ekliyorum  : ",meetNumber);
+            js6ArrayNumbers.push(meetNumber)
         }else{
-            js6ArrayNumbers.push(caseNumber); // sayı dizide yoksa ekler
-            console.log("add :",caseNumber);
-            return caseNumber;
+            pushOutput("bu eleman mevcut",meetNumber,", bu beni etkilemez devamet Yenisini arıyorum ...");
+            say--; //! başarısız denemelerin tekrarını sağlar.
         }
     }
-    while(js6ArrayNumbers.length<8){    // dizi uzunluğuna göre tekrarlar
-        console.log("Döngü sayısı :",say++);
-        switch( tut=randNumber()){
-            //console.log("switce giren sayı",tut)
-            case 1:
-                arrayControl(1);
-                break;
-            case 2:
-                arrayControl(2);
-                break;
-            case 3:
-                arrayControl(3);
-                break;
-            case 4:
-                arrayControl(4);
-                break;
-            case 5:
-                arrayControl(5);
-                break;
-            case 6:
-                arrayControl(6);
-                break;
-            case 7:
-                arrayControl(7);
-                break;
-            case 8:
-                arrayControl(8);
-                break;
-            case 9:
-                arrayControl(9);
-                break;
-            default:
-                console.log("geçersiz değer")
-                break;
-        }
-    }
-    console.log(js6ArrayNumbers)
+    pushOutput(js6ArrayNumbers);
+    pushOutput("Döngü çalışma sayınsı :",tut)
+    pushOutput("aranan eksik sayı : ",control(js6ArrayNumbers));
+    let yapi2 = document.querySelector("#image-div")
+    let pushOutput2 = document.createElement("img")
+    pushOutput2.src = "image/algo-6.png"
+    yapi2.appendChild(pushOutput2)
 }
-console.clear()
 refleshjs()
