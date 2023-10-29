@@ -41,10 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
         scriptCreate("script7")
     })
     button8.addEventListener("click",function(){// button-8 tetiklenmesi ile script8 dosyasını çalıştırır
-        var newScript = document.createElement("script")
-        newScript.id="script8"
-        newScript.src="script8.js"
-        document.head.appendChild(newScript)
+        scriptCreate("script8")
     })
     button9.addEventListener("click",function(){// button-9 tetiklenmesi ile script9 dosyasını çalıştırır
         var newScript = document.createElement("script")

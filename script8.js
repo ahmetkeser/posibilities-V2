@@ -1,36 +1,45 @@
-// çalışma 1 butonu ile example1.js dosyasını tetikler
-document.addEventListener("DOMContentLoaded", function () {
-    let calistir1 = document.getElementById("example-1")
-    calistir1.addEventListener("click", function () {
-        console.clear()
-        ekle = document.createElement("script")
-        ekle.src = "example1.js"
-        document.head.appendChild(ekle)
-    })
-    let calistir2 = document.getElementById("example-3")
-    calistir2.addEventListener("click", function () {
-        ekle=""
-        ekle = document.createElement("script")
-        ekle.src = "example3.js"
-        document.head.appendChild(ekle)
 
-    })
+function refleshjs(){
+    sessionStorage.clear()
+    const clearDOMConsole = document.getElementById("console-div") // console-div tagını temizle
+    while(clearDOMConsole.firstChild){
+        clearDOMConsole.removeChild(clearDOMConsole.firstChild)
+    }
+    const clearDOMImage=document.getElementById("image-div")    // image-div tagını temizle
+    clearDOMImage.removeChild(clearDOMImage.firstChild)
 
-})
-// çalışma 2 butonu ile example1.js dosyasını tetikler
+    function pushOutput(text,textValue=""){ // yeni p tagı oluştur gelen irleri içene yerleştir
+        let yapi =document.getElementById("console-div")
+        let pushOutput = document.createElement("p")
+        pushOutput.textContent = text + textValue
+        yapi.appendChild(pushOutput)
+    }
 
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     let calistir2 = document.getElementById("example-3")
-//     calistir2.addEventListener("click", function () {
-//         console.clear()
-//         let ekle = document.createElement("script")
-//         ekle.src = "example3.js"
-//         document.head.appendChild(ekle)
-//     })
-// })
-
+    let totalElement = 0
+    let carry=[]
+    
+    while(carry.length < 8) {
+        //debugger
+        let randNumber = Math.floor(Math.random() * 9) + 1;
+        if (carry.indexOf(randNumber) === -1){  // indexof var ise 1 yok ise -1 değeri döner
+            carry.push(randNumber)
+            sessionStorage.setItem("carry",carry)
+            totalElement += randNumber
+            pushOutput("Eklenen Sayı :",randNumber);
+        }
+    }
+    const searchNumber =sessionStorage.getItem("carry")// sesionstrogedeki  verileri alır
+    for(let i =1;i<=9;i++){
+        if(searchNumber.indexOf(i)== -1){ // 1 ile 9 arasındaki sayıları sesionda olup olmadığını kontrol eder.
+            pushOutput("Eksik eleman :",i)
+        }
+    }
+    let yapi2 = document.querySelector("#image-div")
+    let pushOutput2 = document.createElement("img")
+    pushOutput2.src = "image/algo-6.png"
+    yapi2.appendChild(pushOutput2)
+}
+refleshjs()
 
 
 
