@@ -36,7 +36,7 @@ function refleshjs(){
     }
     let yapi2 = document.querySelector("#image-div")
     let pushOutput2 = document.createElement("img")
-    pushOutput2.src = "image/algo-6.png"
+    pushOutput2.src = "image/algo-8.png"
     yapi2.appendChild(pushOutput2)
 }
 refleshjs()
