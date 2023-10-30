@@ -1,17 +1,16 @@
 /** for ile sonsuz döngü türetilerek şart sağlanması ile beraber kırıldı
  * oluşan dizideki eleman sayıları toplamı 1+2+3+4+5+6+7+8+9 =45 den farkı ile bulundu 
  */
-function refleshjs() {
-    // const clearDOMConsole = document.getElementById("console-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
-    // while (clearDOMConsole.firstChild) {
-    //     clearDOMConsole.removeChild(clearDOMConsole.firstChild)
-    // }
-    // const clearDOMImage = document.getElementById("image-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
-    // while (clearDOMImage.firstChild) {
-    //     clearDOMImage.removeChild(clearDOMImage.firstChild)
-    // }
-    sabit()
 
+function refleshjs() {
+    const clearDOMConsole = document.getElementById("console-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
+    while (clearDOMConsole.firstChild) {
+        clearDOMConsole.removeChild(clearDOMConsole.firstChild)
+    }
+    const clearDOMImage = document.getElementById("image-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
+    while (clearDOMImage.firstChild) {
+        clearDOMImage.removeChild(clearDOMImage.firstChild)
+    }
     function pushOutput(text, textValue = "") {
         let yapi = document.querySelector("#console-div")
         let pushOutput = document.createElement("p")
@@ -40,7 +39,6 @@ function refleshjs() {
     yapi2.appendChild(pushOutput2)
 
 }
-import {sabit} from "./sabitler.js";    // sabit kullanılan fonksiyonlar bir js dosyasında toplandı
 refleshjs()
 
 
