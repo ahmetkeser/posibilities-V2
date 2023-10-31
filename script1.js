@@ -1,8 +1,8 @@
 /** for ile sonsuz döngü türetilerek şart sağlanması ile beraber kırıldı
  * oluşan dizideki eleman sayıları toplamı 1+2+3+4+5+6+7+8+9 =45 den farkı ile bulundu 
  */
-
 function refleshjs() {
+    
     const clearDOMConsole = document.getElementById("console-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
     while (clearDOMConsole.firstChild) {
         clearDOMConsole.removeChild(clearDOMConsole.firstChild)

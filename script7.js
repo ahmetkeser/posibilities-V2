@@ -5,23 +5,47 @@
 
 
 function refleshjs(){
+    const clearDOMConsole = document.getElementById("console-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
+    while (clearDOMConsole.firstChild) {
+        clearDOMConsole.removeChild(clearDOMConsole.firstChild)
+    }
+    const clearDOMImage = document.getElementById("image-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
+    while (clearDOMImage.firstChild) {
+        clearDOMImage.removeChild(clearDOMImage.firstChild)
+    }
+
+    function pushOutput(text, textValue = "") {
+        let yapi = document.querySelector("#console-div")
+        let pushOutput = document.createElement("p")
+        pushOutput.textContent = text + textValue
+        yapi.appendChild(pushOutput)
+    }
+
     let js7ArrayNumbers=[],tut=0,say=0;
     function randNumber(){ //bu fonksiyon her çağrıldığında 1 ile 9 arasında random üretim geri dönüş yapar.
         let number = Math.floor(Math.random()*9)+1;
         return number;
     }
+
+    function pushOutput(text, textValue = "") {
+        let yapi = document.querySelector("#console-div")
+        let pushOutput = document.createElement("p")
+        pushOutput.textContent = text + textValue
+        yapi.appendChild(pushOutput)
+    }
+
     function arrayControl(caseNumber){
         if(js7ArrayNumbers.includes(caseNumber)== true) // üretilen sayıyı dizide kontrol eder
         {
-            console.log("pass"); // dizide varsa pass geçer
+            pushOutput("Önceden eklenen eleman :", caseNumber); // dizide varsa pass geçer
         }else{
             js7ArrayNumbers.push(caseNumber); // sayı dizide yoksa ekler
-            console.log("add :",caseNumber);
+            pushOutput("add :",caseNumber);
             return caseNumber;
         }
     }
+    
     while(js7ArrayNumbers.length<8){    // dizi uzunluğuna göre tekrarlar
-        console.log("Döngü sayısı :",say++);
         switch( tut=randNumber()){
             //console.log("switce giren sayı",tut)
             case 1:
@@ -56,7 +80,7 @@ function refleshjs(){
                 break;
         }
     }
-    console.log(js7ArrayNumbers)
+    pushOutput("Tüm Eklenen Sayılar :",js7ArrayNumbers)
+
 }
-console.clear()
 refleshjs()

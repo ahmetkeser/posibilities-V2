@@ -13,18 +13,24 @@ document.addEventListener("DOMContentLoaded", function () {
     var button11 = document.getElementById("button-11")
     var button12 = document.getElementById("button-12")
     function scriptCreate(scrptId) {
-        var newScript = document.createElement("script")
+        const scriptControl = document.getElementsByTagName('script')    // ana html oluşumunda 3 sabit script var
+        if(scriptControl.length>=4){                                          // Her clickte yeni bir script oluşuyor ve bu karmaşaya sebebiyet veriyor
+            scriptControl[3].parentNode.removeChild(scriptControl[3])   // her oluşan script işi bittiğinde yeni bir script eklenmek istenirse bir önceki eklenen scripti siler
+        }
+        var newScript = document.createElement("script")        // yoksa istenen biçimde oluşturur
         newScript.id = scrptId
-       // newScript.type="module"
+        // newScript.type="module"
         newScript.src = scrptId + ".js"
-        document.head.appendChild(newScript)
+        document.body.appendChild(newScript)
+        
+        
     }
-    var newScriptSabitler = document.createElement("script")
-        newScriptSabitler.id = "sabitler"
-        newScriptSabitler.type="module"
-        newScriptSabitler.src = "sabitler.js"
-        document.head.appendChild(newScriptSabitler)
-    //scriptCreate("sabitler")
+    // var newScriptSabitler = document.createElement("script")
+    //     newScriptSabitler.id = "sabitler"
+    //     newScriptSabitler.type="module"
+    //     newScriptSabitler.src = "sabitler.js"
+    //     document.head.appendChild(newScriptSabitler)
+    // //scriptCreate("sabitler")
 
     button1.addEventListener("click", function () { // button-1 tetiklenmesi ile script1 dosyasını çalıştırır
         scriptCreate("script1")

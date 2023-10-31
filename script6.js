@@ -18,8 +18,8 @@ function refleshjs(){
         let pushOutput = document.createElement("p")
         pushOutput.textContent = text + textValue
         yapi.appendChild(pushOutput)
-
     }
+    
     let js6ArrayNumbers=[];
     let js6Control=[1,2,3,4,5,6,7,8,9] // eksik sayı kontrolü için oluşturulan dizi
     let tut=0
