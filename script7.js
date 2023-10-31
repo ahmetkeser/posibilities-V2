@@ -1,86 +1,53 @@
-/**
- * burada case break ile anlık üretilen sayıları giriş yapılmışcasına fonksiyonlarda 
- * kontrolleri sağlar 
- */
-
 
 function refleshjs(){
-    const clearDOMConsole = document.getElementById("console-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
-    while (clearDOMConsole.firstChild) {
+    sessionStorage.clear()
+    const clearDOMConsole = document.getElementById("console-div") // console-div tagını temizle
+    while(clearDOMConsole.firstChild){
         clearDOMConsole.removeChild(clearDOMConsole.firstChild)
     }
-    const clearDOMImage = document.getElementById("image-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
-    while (clearDOMImage.firstChild) {
-        clearDOMImage.removeChild(clearDOMImage.firstChild)
-    }
+    const clearDOMImage=document.getElementById("image-div")    // image-div tagını temizle
+    clearDOMImage.removeChild(clearDOMImage.firstChild)
 
-    function pushOutput(text, textValue = "") {
-        let yapi = document.querySelector("#console-div")
+    function pushOutput(text,textValue=""){ // yeni p tagı oluştur gelen irleri içene yerleştir
+        let yapi =document.getElementById("console-div")
         let pushOutput = document.createElement("p")
         pushOutput.textContent = text + textValue
         yapi.appendChild(pushOutput)
     }
 
-    let js7ArrayNumbers=[],tut=0,say=0;
-    function randNumber(){ //bu fonksiyon her çağrıldığında 1 ile 9 arasında random üretim geri dönüş yapar.
-        let number = Math.floor(Math.random()*9)+1;
-        return number;
-    }
-
-    function pushOutput(text, textValue = "") {
-        let yapi = document.querySelector("#console-div")
-        let pushOutput = document.createElement("p")
-        pushOutput.textContent = text + textValue
-        yapi.appendChild(pushOutput)
-    }
-
-    function arrayControl(caseNumber){
-        if(js7ArrayNumbers.includes(caseNumber)== true) // üretilen sayıyı dizide kontrol eder
-        {
-            pushOutput("Önceden eklenen eleman :", caseNumber); // dizide varsa pass geçer
-        }else{
-            js7ArrayNumbers.push(caseNumber); // sayı dizide yoksa ekler
-            pushOutput("add :",caseNumber);
-            return caseNumber;
-        }
-    }
+    let totalElement = 0
+    let carry=[]
     
-    while(js7ArrayNumbers.length<8){    // dizi uzunluğuna göre tekrarlar
-        switch( tut=randNumber()){
-            //console.log("switce giren sayı",tut)
-            case 1:
-                arrayControl(1);
-                break;
-            case 2:
-                arrayControl(2);
-                break;
-            case 3:
-                arrayControl(3);
-                break;
-            case 4:
-                arrayControl(4);
-                break;
-            case 5:
-                arrayControl(5);
-                break;
-            case 6:
-                arrayControl(6);
-                break;
-            case 7:
-                arrayControl(7);
-                break;
-            case 8:
-                arrayControl(8);
-                break;
-            case 9:
-                arrayControl(9);
-                break;
-            default:
-                console.log("geçersiz değer")
-                break;
+    while(carry.length < 8) {
+        //debugger
+        let randNumber = Math.floor(Math.random() * 9) + 1;
+        if (carry.indexOf(randNumber) === -1){  // indexof var ise 1 yok ise -1 değeri döner
+            carry.push(randNumber)
+            sessionStorage.setItem("carry",carry)
+            totalElement += randNumber
+            pushOutput("Eklenen Sayı :",randNumber);
         }
     }
-    pushOutput("Tüm Eklenen Sayılar :",js7ArrayNumbers)
-
+    const searchNumber =sessionStorage.getItem("carry")// sesionstrogedeki  verileri alır
+    for(let i =1;i<=9;i++){
+        if(searchNumber.indexOf(i)== -1){ // 1 ile 9 arasındaki sayıları sesionda olup olmadığını kontrol eder.
+            pushOutput("Eksik eleman :",i)
+        }
+    }
+    let yapi2 = document.querySelector("#image-div")
+    let pushOutput2 = document.createElement("img")
+    pushOutput2.src = "image/algo-7.png"
+    yapi2.appendChild(pushOutput2)
 }
 refleshjs()
+
+
+
+
+
+
+
+
+
+
+
