@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         var newScript = document.createElement("script")        // yoksa istenen biçimde oluşturur
         newScript.id = scrptId
-        // newScript.type="module"
+       //newScript.type="module"
         newScript.src = scrptId + ".js"
         document.body.appendChild(newScript)
         
@@ -31,9 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //     newScriptSabitler.src = "sabitler.js"
     //     document.head.appendChild(newScriptSabitler)
     // //scriptCreate("sabitler")
+    let clied = false
 
     button1.addEventListener("click", function () { // button-1 tetiklenmesi ile script1 dosyasını çalıştırır
         scriptCreate("script1")
+       
     })
     button2.addEventListener("click", function () {// button-2 tetiklenmesi ile script2 dosyasını çalıştırır
         scriptCreate("script2")
@@ -80,5 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
         newScript.src = "script12.js"
         document.head.appendChild(newScript)
     })
+    function deneme(){
+        console.log("deneme çalışır")
+    }
 
 })
