@@ -40,3 +40,22 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 })
+const deneme ={
+    a:"ahmet",
+    b:"Baki",
+    c:"cemil"
+}
+for (let gel in deneme){
+    console.log(deneme[gel])
+}
+
+const texts =["ali","veli","keli"]
+for(let ara in texts){
+    console.log(texts[ara])
+}
+
+const text ="mikail"
+for(let next in text){
+    // console.log(text[next])
+    console.log(...text)
+}
