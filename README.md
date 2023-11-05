@@ -1,3 +1,4 @@
+## ilk versiyonladığım projemdir posibilities V2
 ### Bu çalışma bir ihtimal öngörü çalışmasıdır
 ### Bu sınırlar içersinde --> [1,2,3,4,5,6,7,8,9]  8 adet  sayı türetilerek
 ### eksik olan 1 adet sayıyı geri döndürücek
@@ -14,3 +15,5 @@ araştırmalarım sonucu kod sadeliğinin önüne geçmesi ve hata ayıklamayı 
 
 algoritma çizimleri  https://app.diagrams.net/ sitesinden oluşturuldu.
 
+## burada protatip ile yapılan fonksiyonları farklı js dosyalarında kullanılarak 
+hem kod tasarrufu hemde okunabilirliği artmıştır.
