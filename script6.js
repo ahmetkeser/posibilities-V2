@@ -1,6 +1,5 @@
 function refleshjs(){
-    const sabit = new Sabit
-    sabit.clearPanel()
+    Sabit.clearPanel()
     
     /**
      * fonksiyon ile oluşturulan random sayı üretimi 
@@ -27,18 +26,18 @@ function refleshjs(){
         tut++
         let meetNumber=drive(); // sayı üretme fonksiyonundan gelen değeri atadık
         if(js6ArrayNumbers.includes(meetNumber)==false){ // üretilen sayının oluşturulan dizide kontrolünü yapar
-            sabit.pushOutput("Dizimde mevcut değil ekliyorum  : ",meetNumber);
+            Sabit.pushOutput("Dizimde mevcut değil ekliyorum  : ",meetNumber);
             js6ArrayNumbers.push(meetNumber)
         }else{
-            sabit.pushOutput("bu eleman mevcut",meetNumber,", bu beni etkilemez devamet Yenisini arıyorum ...");
+            Sabit.pushOutput("bu eleman mevcut",meetNumber,", bu beni etkilemez devamet Yenisini arıyorum ...");
             say--; //! başarısız denemelerin tekrarını sağlar.
         }
     }
     /*-------------------------------------------------------------------------*/
 
-    sabit.pushOutput(js6ArrayNumbers);
-    sabit.pushOutput("Döngü çalışma sayınsı :",tut)
-    sabit.pushOutput("aranan eksik sayı : ",control(js6ArrayNumbers));
-    sabit.img("algo-6")
+    Sabit.pushOutput(js6ArrayNumbers);
+    Sabit.pushOutput("Döngü çalışma sayınsı :",tut)
+    Sabit.pushOutput("aranan eksik sayı : ",control(js6ArrayNumbers));
+    Sabit.img("algo-6")
 }
 refleshjs()

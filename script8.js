@@ -1,6 +1,5 @@
 function refleshjs() {
-    const sabit = new Sabit
-    sabit.clearPanel()
+    Sabit.clearPanel()
     
     // Es6 Set özelliğinin Aynı değeri biden fazla kez kaydetmemesi avantajını kullandım.
     /*-------------------------------------------------------------------------*/
@@ -13,11 +12,11 @@ function refleshjs() {
     let tut = 0
     mySet.forEach(function (numbers) { // set içersindeki sayıların toplamını bularak 45 den çıkararak eksik elemanı buluyoruz
         tut += numbers
-        sabit.pushOutput("Eklenen değer :",numbers)
+        Sabit.pushOutput("Eklenen değer :",numbers)
     })
-    sabit.pushOutput("Eksik Eleman :",45 - tut)
+    Sabit.pushOutput("Eksik Eleman :",45 - tut)
     /*-------------------------------------------------------------------------*/
 
-    sabit.img("algo-8")
+    Sabit.img("algo-8")
 }
 refleshjs()

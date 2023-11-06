@@ -1,6 +1,5 @@
 function refleshjs() {
-    const sabit = new Sabit
-    sabit.clearPanel() //! her sayfada uygulanması gereken temizleme işlemini sabitler.jsde yazarak burda çağırıyoruz.
+    Sabit.clearPanel() //! her sayfada uygulanması gereken temizleme işlemini sabitler.jsde yazarak burda çağırıyoruz.
     
     /** for ile sonsuz döngü türetilerek şart sağlanması ile beraber kırıldı
     * oluşan dizideki eleman sayıları toplamı 1+2+3+4+5+6+7+8+9 =45 den farkı ile bulundu 
@@ -13,7 +12,7 @@ function refleshjs() {
         if (js1Array.includes(r) == false) {// üretilen sayı dizide yoksa
             js1Array.push(r); // türetilen sayı diziye eklenir
             js1Collect += r; // girilen sayıların toplamı tutucuya aktarılır.
-            sabit.pushOutput("Eklenen Eleman : ", r)
+            Sabit.pushOutput("Eklenen Eleman : ", r)
             if (js1Array.length == 8) {// sonsuz döngüyü kırmak için oluşacak eşsiz rakam dizisinin 8 elemandan oluşmasını denetler
                 break;  // sonsuz döngüyü kırar
             }
@@ -21,9 +20,9 @@ function refleshjs() {
     }
     /*-------------------------------------------------------------------------*/
 
-    sabit.pushOutput(js1Array) // üretilen benzersiz sayı dizisini yazdırır.
-    sabit.pushOutput("Atlanan sayı :", (45 - js1Collect))  // türetilen sayılar toplamı çıkarak eksik olan sayı bulunur.
-    sabit.img("algo-1") //hazırlanan algoritmayı taga ekler
+    Sabit.pushOutput(js1Array) // üretilen benzersiz sayı dizisini yazdırır.
+    Sabit.pushOutput("Atlanan sayı :", (45 - js1Collect))  // türetilen sayılar toplamı çıkarak eksik olan sayı bulunur.
+    Sabit.img("algo-1") //hazırlanan algoritmayı taga ekler
 }
 refleshjs()
 

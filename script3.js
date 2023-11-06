@@ -1,7 +1,6 @@
 
 function refleshjs() {
-    const sabit = new Sabit
-    sabit.clearPanel() //! her sayfada uygulanması gereken temizleme işlemini sabitler.jsde yazarak burda çağırıyoruz.
+    Sabit.clearPanel() //! her sayfada uygulanması gereken temizleme işlemini sabitler.jsde yazarak burda çağırıyoruz.
     const clearDOMConsole = document.getElementById("console-div") // bu kontrol tekrarlanan clicklerde div içersindeki önceki eklenen elemanları temizler (üstüne yazmazını engeller)
 
     /**
@@ -18,18 +17,18 @@ function refleshjs() {
         if (js3ArrayNumbers.indexOf(r) === -1) { //bu elemanı numbers dizisinde bulamazsa girer
             js3ArrayNumbers[control] = r;
             control++;                  // kontrolü bir artırır
-            sabit.pushOutput("eleman eklendi :" , r);
+            Sabit.pushOutput("eleman eklendi :" , r);
         }
         if (control == 8) {
             for (let i = 1; i <=9; i++) { // atlanan elemanı bulmak için kullanıldı
                 if (js3ArrayNumbers.indexOf(i) == -1) {
-                    sabit.pushOutput("kaçak eleman : ", i)
+                    Sabit.pushOutput("kaçak eleman : ", i)
                 }
             }
         }   
     }
     /*-------------------------------------------------------------------------*/
-    sabit.pushOutput(js3ArrayNumbers);
-    sabit.img("algo-3")
+    Sabit.pushOutput(js3ArrayNumbers);
+    Sabit.img("algo-3")
 }
 refleshjs()

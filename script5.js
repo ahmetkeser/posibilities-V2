@@ -1,6 +1,5 @@
 function refleshjs(){
-    const sabit=new Sabit
-    sabit.clearPanel()
+    Sabit.clearPanel()
     
     /**
      * burada case break ile anlık üretilen sayıları giriş yapılmışcasına fonksiyonlarda 
@@ -15,10 +14,10 @@ function refleshjs(){
     function arrayControl(caseNumber){
         if(js5ArrayNumbers.includes(caseNumber)== true) // üretilen sayıyı dizide kontrol eder
         {
-            sabit.pushOutput("pass", caseNumber); // dizide varsa pass geçer
+            Sabit.pushOutput("pass", caseNumber); // dizide varsa pass geçer
         }else{
             js5ArrayNumbers.push(caseNumber); // sayı dizide yoksa ekler
-            sabit.pushOutput("add :",caseNumber);
+            Sabit.pushOutput("add :",caseNumber);
             topla += caseNumber
             return caseNumber;
         }
@@ -54,15 +53,15 @@ function refleshjs(){
                 arrayControl(9);
                 break;
             default:
-                sabit.pushOutput("geçersiz değer")
+                Sabit.pushOutput("geçersiz değer")
                 break;
         }
     }
     /*-------------------------------------------------------------------------*/
 
-    sabit.pushOutput("Döngü sayısı :",say)
-    sabit.pushOutput(js5ArrayNumbers)
-    sabit.pushOutput("Eksik Eleman : ", 45-topla)
-    sabit.img("algo-5")
+    Sabit.pushOutput("Döngü sayısı :",say)
+    Sabit.pushOutput(js5ArrayNumbers)
+    Sabit.pushOutput("Eksik Eleman : ", 45-topla)
+    Sabit.img("algo-5")
 }
 refleshjs()

@@ -1,7 +1,6 @@
 
 function refleshjs() {
-    const sabit = new Sabit
-    sabit.clearPanel()
+    Sabit.clearPanel()
     
     /**
      * while döngüsü ile şart belirlenerek işlem içersinde artış yapıldı
@@ -14,13 +13,13 @@ function refleshjs() {
         if (js4ArrayNumbers.indexOf(randNumber) === -1) {  // indexof var ise 1 yok ise -1 değeri döner
             js4ArrayNumbers.push(randNumber)
             totalElement += randNumber
-            sabit.pushOutput("Eklenen Sayı :",randNumber);
+            Sabit.pushOutput("Eklenen Sayı :",randNumber);
         }
     }
     /*-------------------------------------------------------------------------*/
 
-    sabit.pushOutput(js4ArrayNumbers);
-    sabit.pushOutput("Dizideki Eksik Eleman :", 45 - totalElement)
-    sabit.img("algo-4")
+    Sabit.pushOutput(js4ArrayNumbers);
+    Sabit.pushOutput("Dizideki Eksik Eleman :", 45 - totalElement)
+    Sabit.img("algo-4")
 }
 refleshjs()
